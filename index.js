@@ -9,7 +9,7 @@ let path = __dirname + '/repos.md';
 
 getRepos(username, (err, repos) => {
 
-  let heading = `# Repos by ${username}\nAuto-generated list of repositories.\n\n`;
+  let heading = `# Repos by @${username}\nAuto-generated list of repositories using [repos2md](https://github.com/frenchbread/repos2md).\n\n`;
 
   let body = parseReposToMd(repos);
 
