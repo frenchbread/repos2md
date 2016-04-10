@@ -5,12 +5,16 @@
   "main": "index.js",
   "dependencies": {
     "github": "^0.2.4",
+    "meow": "^3.7.0",
     "moment": "^2.12.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node index.js"
+  },
+  "bin": {
+    "repos2md": "cli.js"
   },
   "keywords": [
     "export",
