@@ -1,41 +1,24 @@
 'use strict';
 
-const fs = require('fs');
+const getRepos = require('./lib/getRepos');
+const parseReposToMd = require('./lib/parseReposToMd');
+const saveToFile = require('./lib/saveToFile');
 
-const GitHubApi = require('github');
+let username = 'frenchbread';
+let path = __dirname + '/repos.md';
 
-const _ = require('lodash');
-const moment = require('moment');
+getRepos(username, (err, repos) => {
 
-const github = new GitHubApi({
-  version: '3.0.0'
-});
+  let heading = `# Repos by ${username}\nAuto-generated list of repositories.\n\n`;
 
-github.repos.getFromUser({
-  user: 'frenchbread',
-  sort: 'created',
-  type: 'all',
-  per_page: 100
-}, (err, data) => {
+  let body = parseReposToMd(repos);
 
-  if (err) console.log(err);
+  let footer = `> <> with <3`;
 
-  let file = '';
-  let repos = '';
-
-  _.each(data, (item) => {
-    let timestamp = moment(item.created_at).format('DD MMM YYYY');
-    repos += `### ${item.name} - **${timestamp}** \n${item.description} \n\n`;
-  });
-
-  file = `# Repos\n\n${repos}\n---\n<> by DM`;
-
-  fs.writeFile(`${__dirname}/repos.md`, file, (err) => {
+  saveToFile(path, heading+body+footer, (err) => {
 
     if (err) console.log(err);
 
-    console.log('file saved!');
-
+    console.log('File saved!');
   });
-
 });
