@@ -1,4 +1,4 @@
-# repos2md
+# repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.fury.io/js/repos2md)
 
 Export GutHub repos list to markdown file.
 
