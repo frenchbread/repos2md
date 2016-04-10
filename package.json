@@ -1,0 +1,31 @@
+{
+  "name": "repos2md",
+  "version": "0.1.0",
+  "description": "Export user's repos to .md file",
+  "main": "index.js",
+  "dependencies": {
+    "github": "^0.2.4",
+    "lodash": "^4.9.0",
+    "moment": "^2.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "export",
+    "repos",
+    "to",
+    "md"
+  ],
+  "author": "Damir Mustafin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frenchbread/repos2md.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frenchbread/repos2md/issues"
+  },
+  "homepage": "https://github.com/frenchbread/repos2md#readme"
+}
