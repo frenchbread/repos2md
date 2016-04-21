@@ -37,6 +37,9 @@ let path = __dirname + '/some_path'
 repos2md(username, path);
 ```
 
+### TODO
+- Change input username/path approach
+
 ### License
 
 [MIT](https://github.com/frenchbread/repos2md/blob/master/LICENSE)
