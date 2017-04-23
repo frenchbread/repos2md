@@ -4,9 +4,13 @@
 const l = require('chalk-log')
 const meow = require('meow')
 
+const pckg = require('./package.json')
 const repos2md = require('./')
 
 const cli = meow(`
+
+  ${pckg.name} v${pckg.version}
+
   Usage
     $ repos2md --username <username>
     $ repos2md --username <username> --path <path>

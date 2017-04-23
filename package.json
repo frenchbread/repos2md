@@ -13,6 +13,9 @@
     "prepublish": "yarn run build",
     "test": "node test"
   },
+  "bin": {
+    "repos2md": "cli.js"
+  },
   "dependencies": {
     "axios": "^0.16.1",
     "chalk-log": "^1.2.0",
