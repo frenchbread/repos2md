@@ -8,9 +8,9 @@
   "license": "MIT",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src",
-    "build": "yarn run clean && ./node_modules/.bin/babel src --out-dir lib",
+    "build": "npm run clean && ./node_modules/.bin/babel src --out-dir lib",
     "clean": "./node_modules/.bin/rimraf ./lib",
-    "prepublish": "yarn run build",
+    "prepublish": "npm run build",
     "test": "node test"
   },
   "bin": {
