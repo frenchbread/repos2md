@@ -30,4 +30,5 @@ export default ({ username, path, type, token }) => {
         .then(res => spinner.succeed(`File saved to ${path}`))
         .catch(err => spinner.fail(err.message))
     })
+    .catch(err => spinner.fail(err.message))
 }
