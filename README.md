@@ -7,7 +7,7 @@
 ```bash
 $ npm i repos2md -g
 # or
-$ yarn global add repos2md 
+$ yarn global add repos2md
 ```
 
 ### Usage
@@ -20,10 +20,10 @@ $ repos2md --help
     $ repos2md --username <username> --path <path>
 
   Options
-    --username  GitHub username (required)
-    --path      Absolute path for .md document to be saved to
-    --type      Get 'user' repos or 'starred' repos
-    --token     Your GitHub token (if you want to inclide private repos)
+    --username  (required)  GitHub username
+    --path      (required)  Absolute path for .md document to be saved to
+    --type      (optional)  Get 'user' repos or 'starred' repos
+    --token     (optional)  Your GitHub token (if you want to include private repos)
 
   Examples
     $ repos2md --username frenchbread
@@ -38,15 +38,22 @@ import repos2md from 'repos2md'
 
 
 repos2md({
-  username: '<your_github_username>', // required
-  path: '<path_to_save_to>', // optional
-  type: '<type>', // optional - 'user' or 'starred' ('user' is default),
-  token: '<your_git_token>' // optional (used to fetch private repos)
+  username: '<your_github_username>',   // required
+  path:     '<path_to_save_to>',        // optional
+  type:     '<type>',                   // optional - 'user' or 'starred' ('user' is default)
+  token:    '<your_git_token>'          // optional (used to fetch private repos)
 })
 ```
 
 ### TODO
 - [x] Change input username/path approach
+- [ ] Write & add tests
+
+> Contributions are welcome!
+
+### Author
+
+- Damir Mustafin [@frenchbread](https://github.com/frenchbread)
 
 ### License
 
