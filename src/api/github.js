@@ -8,19 +8,17 @@ export default {
     let url = ''
 
     if (token) {
-      url = `/user/repos`
-      url += '?per_page=100'
-      url += `&page=${page}`
-      url += '&sort=updated'
-      url += '&affiliation=owner'
+      url = `/user/repos?`
+      url += 'affiliation=owner&'
 
-      params = { auth: { username, password: token } }
+      params = getAuthParams(username, token)
     } else {
-      url = `/users/${username}/repos`
-      url += '?per_page=100'
-      url += `&page=${page}`
-      url += '&sort=updated'
+      url = `/users/${username}/repos?`
     }
+
+    url += 'per_page=100&'
+    url += 'sort=updated&'
+    url += `page=${page}`
 
     return axe.get(url, params)
       .then(res => {
@@ -28,12 +26,27 @@ export default {
       })
       .catch(err => l.error(err))
   },
-  getStarredRepos ({ username, page }) {
-    let url = `/users/${username}/starred`
-    url += '?per_page=100'
-    url += `&page=${page}`
-    return axe.get(url)
+  getStarredRepos ({ username, token, page }) {
+    let params = {}
+    let url = ''
+
+    if (token) {
+      url = `/user/starred?`
+
+      params = getAuthParams(username, token)
+    } else {
+      url = `/users/${username}/starred?`
+    }
+
+    url += 'per_page=100&'
+    url += `page=${page}`
+
+    return axe.get(url, params)
       .then(res => res.data)
       .catch(err => l.error(err))
   }
+}
+
+const getAuthParams = (username, password) => {
+  return { auth: { username, password } }
 }

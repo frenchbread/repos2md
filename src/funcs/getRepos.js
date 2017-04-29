@@ -30,7 +30,7 @@ export default async ({ username, type, token, spinner }) => {
     let page = 1
 
     while (!stop) {
-      const reposPerPage = await github.getStarredRepos({ username, page })
+      const reposPerPage = await github.getStarredRepos({ username, token, page })
         .then(r => r)
         .catch(err => l.error(err))
 
