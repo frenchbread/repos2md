@@ -1,6 +1,6 @@
 {
   "name": "repos2md",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Export repos list to a markdown file.",
   "main": "index.js",
   "repository": "https://github.com/frenchbread/repos2md.git",
