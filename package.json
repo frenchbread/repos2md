@@ -1,36 +1,34 @@
 {
   "name": "repos2md",
-  "version": "0.1.5",
-  "description": "Export user's repos to .md file",
+  "version": "1.0.0",
+  "description": "Export repos list to a markdown file.",
   "main": "index.js",
-  "dependencies": {
-    "github": "^0.2.4",
-    "meow": "^3.7.0",
-    "moment": "^2.12.0",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {},
+  "repository": "https://github.com/frenchbread/repos2md.git",
+  "author": "Damir Mustafin <frenchthebread@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "lint": "./node_modules/.bin/eslint src",
+    "build": "yarn run clean && ./node_modules/.bin/babel src --out-dir lib",
+    "clean": "./node_modules/.bin/rimraf ./lib",
+    "prepublish": "yarn run build",
+    "test": "node test"
   },
   "bin": {
     "repos2md": "cli.js"
   },
-  "keywords": [
-    "export",
-    "repos",
-    "to",
-    "md"
-  ],
-  "author": "Damir Mustafin",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/frenchbread/repos2md.git"
+  "dependencies": {
+    "axios": "^0.16.1",
+    "chalk-log": "^1.2.0",
+    "meow": "^3.7.0",
+    "ora": "^1.2.0"
   },
-  "bugs": {
-    "url": "https://github.com/frenchbread/repos2md/issues"
-  },
-  "homepage": "https://github.com/frenchbread/repos2md#readme",
-  "reveal": true
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^3.19.0",
+    "rimraf": "^2.6.1",
+    "standard": "^10.0.2"
+  }
 }

@@ -1,11 +1,17 @@
 # repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.fury.io/js/repos2md)
 
-Export GutHub repos list to markdown file.
+> Export GutHub repos list to a markdown file.
+
+[![NPM](https://nodei.co/npm/repos2md.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/repos2md/)
+
+[![NPM](https://nodei.co/npm-dl/repos2md.png)](https://nodei.co/npm/repos2md/)
 
 ### Install
 
-```
+```bash
 $ npm i repos2md -g
+# or
+$ yarn global add repos2md
 ```
 
 ### Usage
@@ -14,31 +20,44 @@ $ npm i repos2md -g
 $ repos2md --help
 
   Usage
-    $ repos2md --username=<username>
-    $ repos2md --username=<username> --path=<path>
+    $ repos2md --username <username>
+    $ repos2md --username <username> --path <path>
 
   Options
-    --username  GitHub username (required)
-    --path      Absolute path for .md document to be saved to
+    --username  (required)  GitHub username
+    --path      (required)  Absolute path for .md document to be saved to
+    --type      (optional)  Get 'user' repos or 'starred' repos
+    --token     (optional)  Your GitHub token (if you want to include private repos)
 
   Examples
-    $ repos2md --username=frenchbread
-    $ repos2md --username=frenchbread --path=/Users/frenchbread/Desktop
+    $ repos2md --username frenchbread
+    $ repos2md --username frenchbread --path /Users/frenchbread/Desktop
+    $ repos2md --username frenchbread --type starred
 ```
 
 ### API
 
 ```javascript
-const repos2md = require('repos2md');
+import repos2md from 'repos2md'
 
-let username = 'some_username';
-let path = __dirname + '/some_path'
 
-repos2md(username, path);
+repos2md({
+  username: '<your_github_username>',   // required
+  path:     '<path_to_save_to>',        // optional
+  type:     '<type>',                   // optional - 'user' or 'starred' ('user' is default)
+  token:    '<your_git_token>'          // optional (used to fetch private repos)
+})
 ```
 
 ### TODO
-- Change input username/path approach
+- [x] Change input username/path approach
+- [ ] Write & add tests
+
+> Contributions are welcome!
+
+### Author
+
+- Damir Mustafin [@frenchbread](https://github.com/frenchbread)
 
 ### License
 
