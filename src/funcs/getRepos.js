@@ -17,7 +17,7 @@ export default async ({ username, type, token, spinner }) => {
       else {
         repos = repos.concat(reposPerPage)
 
-        spinner.text = `Got ${repos.length} repos so far..`
+        spinner.text = `Got ${repos.length} ${type} repos so far..`
       }
 
       page++
@@ -38,7 +38,7 @@ export default async ({ username, type, token, spinner }) => {
       else {
         repos = repos.concat(reposPerPage)
 
-        spinner.text = `Got ${repos.length} repos so far..`
+        spinner.text = `Got ${repos.length} ${type} repos so far..`
       }
 
       page++
