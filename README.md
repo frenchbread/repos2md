@@ -1,5 +1,9 @@
 # repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.fury.io/js/repos2md)
 
+[![NPM](https://nodei.co/npm/repos2md.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/repos2md/)
+
+[![NPM](https://nodei.co/npm-dl/repos2md.png)](https://nodei.co/npm/repos2md/)
+
 > Export GutHub repos list to a markdown file.
 
 ### Install
