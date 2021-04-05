@@ -28,7 +28,7 @@ repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.f
 
   Export repos list to a markdown file.
 
-  repos2md v1.1.0
+  repos2md v2.0.0
 
   Usage
     $ repos2md <username>
@@ -36,7 +36,7 @@ repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.f
 
   Options
     --starred                 optional (default is user repos)        If provided, user's starred repos will be fetched
-    --save-to                 optional (defaults to project root)     Path to the target file (.md document) to write to
+    --save-to                 optional (defaults to project root)     Absolute path to the target file (.md document) to write to
     --token                   optional (includes private repos)       Your GitHub token (if you want to inclide private repos)
     --exclude-repos-count     optional                                Exclude repos count from heading in target file
 
