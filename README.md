@@ -57,7 +57,7 @@ repos2md('github')
 
 ## api
 
-### repos2md(gh_username, options?)
+### repos2md(github_username, options?)
 
 Returns `<path>` to where file has been saved.
 
@@ -73,19 +73,19 @@ type: `object`
 
 - **save_to**
 
-  type: 'string'
+  type: `string`
 
   Custom path to where write file to. Can be both relative & absolute.
 
 - **token**
 
-  type: 'string'
+  type: `string`
 
   GitHub [token](https://github.com/settings/tokens), used to include private repos.
 
 - **exclude_repos_count**
 
-  type: 'boolean'
+  type: `boolean`
 
   Exclude repos count from target doc.
 
