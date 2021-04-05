@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict'
 
-const l = require('chalk-log')
 const meow = require('meow')
 
 const pckg = require('./package.json')
@@ -12,31 +11,27 @@ const cli = meow(`
   ${pckg.name} v${pckg.version}
 
   Usage
-    $ repos2md --username <username>
-    $ repos2md --username <username> --path <path>
+    $ repos2md <username>
+    $ repos2md <username> --save-to <path> --token <token> --exclude-repos-count
 
   Options
-    --username  GitHub username (required)
-    --path      Absolute path for .md document to be saved to
-    --type      Get 'user' repos or 'starred' repos
-    --token     Your GitHub token (if you want to inclide private repos)
+    --starred                 optional (default is user repos)        If provided, user's starred repos will be fetched
+    --save-to                 optional (defaults to project root)     Absolute path to the target file (.md document) to write to
+    --token                   optional (includes private repos)       Your GitHub token (if you want to inclide private repos)
+    --exclude-repos-count     optional                                Exclude repos count from heading in target file
 
   Examples
-    $ repos2md --username frenchbread
-    $ repos2md --username frenchbread --path /Users/frenchbread/Desktop
-    $ repos2md --username frenchbread --type starred
+    $ repos2md frenchbread
+    $ repos2md frenchbread --starred --save-to /Users/frenchbread/Desktop --exclude-repos-count
 `)
 
-if (cli.flags.username) {
-  const username = cli.flags.username
-  let path = (cli.flags.path) ? cli.flags.path : __dirname
-  const type = (cli.flags.type) ? cli.flags.type : 'user'
-  const token = (cli.flags.token) ? cli.flags.token : ''
+if (cli.input.length > 0 && cli.input[0] !== '') {
+  const username = cli.input[0]
+  const { starred, saveTo, token, excludeReposCount } = cli.flags
 
-  path += `/${type}_repos_by_${username}.md`
-
-  repos2md({ username, path, type, token })
+  repos2md(username, { starred, save_to: saveTo, token, exclude_repos_count: excludeReposCount, show_spinner: true })
 } else {
-  l.error('Username was not provided!\nUse --help for reference.')
+  console.log(cli.help)
+
   process.exit(1)
 }

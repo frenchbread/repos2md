@@ -1,34 +1,26 @@
 {
   "name": "repos2md",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Export repos list to a markdown file.",
   "main": "index.js",
   "repository": "https://github.com/frenchbread/repos2md.git",
   "author": "Damir Mustafin <frenchthebread@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src",
-    "build": "npm run clean && ./node_modules/.bin/babel src --out-dir lib",
-    "clean": "./node_modules/.bin/rimraf ./lib",
-    "prepublish": "npm run build",
-    "test": "node test"
+    "test": "ava"
   },
   "bin": {
     "repos2md": "cli.js"
   },
   "dependencies": {
-    "axios": "^0.16.1",
-    "babel-polyfill": "^6.23.0",
-    "chalk-log": "^1.2.0",
-    "meow": "^3.7.0",
-    "ora": "^1.2.0"
+    "axios": "^0.21.0",
+    "chalk": "^4.1.0",
+    "expand-home-dir": "^0.0.3",
+    "fs-extra": "^9.0.1",
+    "meow": "^8.0.0",
+    "ora": "^5.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-latest": "^6.24.1",
-    "eslint": "^3.19.0",
-    "rimraf": "^2.6.1",
-    "standard": "^10.0.2"
+    "ava": "^3.13.0"
   }
 }

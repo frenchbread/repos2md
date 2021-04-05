@@ -1,64 +1,112 @@
-# repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.fury.io/js/repos2md)
+repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.fury.io/js/repos2md)
+--
 
-> Export GutHub repos list to a markdown file.
+> Export GutHub user repos list to a markdown file.
 
 [![NPM](https://nodei.co/npm/repos2md.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/repos2md/)
 
 [![NPM](https://nodei.co/npm-dl/repos2md.png)](https://nodei.co/npm/repos2md/)
 
-### Install
+## install
 
 ```bash
-$ npm i repos2md -g
-# or
-$ yarn global add repos2md
+# globally
+
+❯ yarn global add repos2md
+
+# or in project
+
+❯ yarn add repos2md
 ```
 
-### Usage
+## usage
 
-```
-$ repos2md --help
+### `cli`
+
+```bash
+❯ repos2md --help
+
+  Export repos list to a markdown file.
+
+  repos2md v1.1.0
 
   Usage
-    $ repos2md --username <username>
-    $ repos2md --username <username> --path <path>
+    $ repos2md <username>
+    $ repos2md <username> --save-to <path> --token <token> --exclude-repos-count
 
   Options
-    --username  (required)  GitHub username
-    --path      (required)  Absolute path for .md document to be saved to
-    --type      (optional)  Get 'user' repos or 'starred' repos
-    --token     (optional)  Your GitHub token (if you want to include private repos)
+    --starred                 optional (default is user repos)        If provided, user's starred repos will be fetched
+    --save-to                 optional (defaults to project root)     Path to the target file (.md document) to write to
+    --token                   optional (includes private repos)       Your GitHub token (if you want to inclide private repos)
+    --exclude-repos-count     optional                                Exclude repos count from heading in target file
 
   Examples
-    $ repos2md --username frenchbread
-    $ repos2md --username frenchbread --path /Users/frenchbread/Desktop
-    $ repos2md --username frenchbread --type starred
+    $ repos2md frenchbread
+    $ repos2md frenchbread --starred --save-to /Users/frenchbread/Desktop --exclude-repos-count
 ```
 
-### API
+### `nodejs`
 
-```javascript
-import repos2md from 'repos2md'
+```js
+const repos2md from 'repos2md'
 
 
-repos2md({
-  username: '<your_github_username>',   // required
-  path:     '<path_to_save_to>',        // optional
-  type:     '<type>',                   // optional - 'user' or 'starred' ('user' is default)
-  token:    '<your_git_token>'          // optional (used to fetch private repos)
-})
+repos2md('github')
+  .then(saved_to => console.log(`Repos saved to "${saved_to}"`))
 ```
 
-### TODO
+## api
+
+### repos2md(gh_username, options?)
+
+Returns `<path>` to where file has been saved.
+
+#### options
+
+type: `object`
+
+- **starred**
+
+  type: `boolean`
+
+  Fetch user's starred repos.
+
+- **save_to**
+
+  type: 'string'
+
+  Custom path to where write file to. Can be both relative & absolute.
+
+- **token**
+
+  type: 'string'
+
+  GitHub [token](https://github.com/settings/tokens), used to include private repos.
+
+- **exclude_repos_count**
+
+  type: 'boolean'
+
+  Exclude repos count from target doc.
+
+### **note!**
+
+> For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
+>
+> [Source](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting)
+
+
+### todos
 - [x] Change input username/path approach
-- [ ] Write & add tests
+- [x] Write & add tests
+- [x] Handle paths containing `~`
 
 > Contributions are welcome!
 
-### Author
+### author
 
 - Damir Mustafin [@frenchbread](https://github.com/frenchbread)
 
-### License
+### license
 
 [MIT](https://github.com/frenchbread/repos2md/blob/master/LICENSE)
