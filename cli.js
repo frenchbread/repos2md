@@ -19,7 +19,7 @@ const cli = meow(`
   Options
     --starred                 optional (default is user repos)        If provided, user's starred repos will be fetched
     --save-to                 optional (defaults to project root)     Absolute path to the target file (.md document) to write to
-    --token                   optional (includes private repos)       Your GitHub token (Will return only authenticated user's public & private repos)
+    --token                   optional (includes private repos)       Your GitHub token (Includes private repos & extends rate-limit)
     --exclude-repos-count     optional                                Exclude repos count from heading in target file
 
   Examples

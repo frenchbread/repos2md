@@ -31,7 +31,7 @@ test('should work fine with default value', t => {
 })
 
 test('should work fine', t => {
-  const file_path = path.join(__dirname, '.md')
+  const file_path = join(__dirname, '.md')
 
   t.is(path.get_final_path(file_path), join(file_path, 'repos.md'))
 })

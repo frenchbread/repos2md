@@ -45,6 +45,7 @@ repos2md [![npm version](https://badge.fury.io/js/repos2md.svg)](https://badge.f
     $ repos2md octocat
     $ repos2md octocat --starred --save-to /Users/frenchbread/Desktop --exclude-repos-count
     $ repos2md --token <your_gh_token>
+    $ repos2md --token <your_gh_token> --starred
 ```
 
 ### `nodejs`
@@ -83,9 +84,7 @@ type: `object`
 
   type: `string`
 
-  GitHub [token](https://github.com/settings/tokens), used to include private repos.
-
-  ***note:*** when token is used, username gets ignored and only repos for authenticated user are returned
+  GitHub [token](https://github.com/settings/tokens), used to include private repos and extend rate-limits.
 
 - **exclude_repos_count**
 
