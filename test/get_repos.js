@@ -1,11 +1,11 @@
-const test = require('ava')
+import test from 'ava'
 
-const gh = require('../lib/gh')
+import gh from '../lib/gh.js'
 
 test('should contain at least one repo with readable owner', async t => {
-  const repos = await gh.get_repos('true')
+  const repos = await gh.get_repos('octocat')
 
-  t.is(repos[0].owner.login, 'true')
+  t.is(repos[0].owner.login, 'octocat')
 })
 
 test('should return error if username is not provided', async t => {
@@ -13,5 +13,5 @@ test('should return error if username is not provided', async t => {
     await gh.get_repos()
   }, { instanceOf: Error })
 
-  t.is(error.message, 'username can\'t be empty')
+  t.is(error.message, 'username or token is required')
 })

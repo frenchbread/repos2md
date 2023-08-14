@@ -6,21 +6,28 @@
   "repository": "https://github.com/frenchbread/repos2md.git",
   "author": "Damir Mustafin <frenchthebread@gmail.com>",
   "license": "MIT",
+  "exports": "./lib/index.js",
+  "type": "module",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "lint": "./node_modules/.bin/eslint ./"
   },
   "bin": {
     "repos2md": "cli.js"
   },
   "dependencies": {
     "axios": "^0.21.4",
-    "chalk": "^4.1.2",
+    "chalk": "^5.3.0",
     "expand-home-dir": "^0.0.3",
     "fs-extra": "^9.1.0",
     "meow": "^9.0.0",
     "ora": "^5.4.1"
   },
+  "engines": {
+    "node": ">=14.16"
+  },
   "devDependencies": {
-    "ava": "^3.15.0"
+    "ava": "^5.3.1",
+    "eslint": "^8.47.0"
   }
 }

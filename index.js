@@ -1,3 +1,4 @@
 'use strict'
 
-module.exports = require('./lib')
+import lib from './lib/index.js'
+export default lib
